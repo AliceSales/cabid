@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <swiper-container #swiper>
+    <swiper-slide>
+      <div class="content">
+        <img class="logomarca" src="../../../assets/logomarca.png" alt="cab.id logomarca"/>
+        <div class="next-content">
+          <button (click)="nextSlide()"> &gt; </button>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="content">
+        <div class="text-content">
+          <h1>Olá!</h1>
+          <p>Somos o cab.id, um grupo de projetão que odeia a cadeira e queremos apenas entregar esse trabalho e irmos embora.</p>
+          <br>
+        </div>
+        <div class="next-content">
+          <button (click)="nextSlide()"> &gt; </button>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="content">
+        <div class="text-content">
+          <h1>Olá!</h1>
+          <p>Somos o cab.id, um grupo de projetão que odeia a cadeira e queremos apenas entregar esse trabalho e irmos embora.</p>
+          <br>
+        </div>
+        <div class="next-content">
+          <button class="continue_button" (click)="redirect_to_home()">Continuar</button>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

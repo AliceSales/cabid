@@ -1,0 +1,115 @@
+<ion-menu contentId="main-content">
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-img
+        slot="secondary"
+        src="../../assets/logomarca.png"
+        style="width: 7rem;"
+        alt="The Wisconsin State Capitol building in Madison, WI at night"
+      ></ion-img>
+    </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar type="text" color="light" placeholder="Search text" clearInput>
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <swiper-container #swiper :pagination="{
+      hideOnClick: true
+    }"
+    >
+      <swiper-slide>
+        <ion-card style="border-radius: 1rem;">
+          <img
+          alt="Silhouette of mountains"
+          (click)="redirect_to_details()"
+          style="position: relative; border-radius: 1rem;"
+          src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card-header style="position: absolute; bottom: 0;">
+            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide>
+        <ion-card style="border-radius: 1rem;">
+          <img
+          alt="Silhouette of mountains"
+          (click)="redirect_to_details()"
+          style="position: relative; border-radius: 1rem;"
+          src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card-header style="position: absolute; bottom: 0;">
+            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide>
+        <ion-card style="border-radius: 1rem;">
+          <img
+          alt="Silhouette of mountains"
+          (click)="redirect_to_details()"
+          style="position: relative; border-radius: 1rem;"
+          src="https://ionicframework.com/docs/img/demos/card-media.png" />
+          <ion-card-header style="position: absolute; bottom: 0;">
+            <ion-card-title>Card Title</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+  <!--       
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content> -->
+        </ion-card>
+      </swiper-slide>
+    </swiper-container>
+      <ion-header>
+        <ion-toolbar>
+          <ion-segment value="all" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="all">
+              <ion-label>All</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="favorites">
+              <ion-label>Favorites</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list *ngIf="selectedSegment === 'all'" style="display: flex; flex-wrap: wrap; justify-content: center;">
+          <ion-card style="width: 40%;">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-subtitle>R$ 120,00</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+          <ion-card style="width: 40%;">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-subtitle>R$ 120,00</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+          <ion-card style="width: 40%;">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-subtitle>R$ 120,00</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+          <ion-card style="width: 40%;">
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-subtitle>R$ 120,00</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-list>
+        <ion-list *ngIf="selectedSegment === 'favorites'">
+          pppppppppppppppppppppppppppp
+        </ion-list>
+      </ion-content>
+  </ion-content>
+</div>

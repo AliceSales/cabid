@@ -1,0 +1,7 @@
+{
+  "name": "cabid",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
