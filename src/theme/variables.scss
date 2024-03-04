@@ -1,0 +1,51 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+    --preto: #1B1717;
+    --cinza: #696969;
+    --purpura: #8A4550;
+    --purpura_claro: #B84F60;
+    --bege: #FDF8F5;
+    --laranja: #D2691E;
+}
+
+
+@media (prefers-color-scheme: light) {
+/*
+    * Dark Colors
+    * -------------------------------------------
+    */
+
+body {
+    --ion-color-primary: #8A4550;
+    --ion-color-primary-rgb: 66,140,255;
+    --ion-color-primary-contrast: #FDF8F5;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #8A4550;
+    --ion-color-primary-tint: #8A4550;
+
+    --ion-color-secondary: #8A4550;
+    --ion-color-secondary-rgb: 80,200,255;
+    --ion-color-secondary-contrast: #FDF8F5;
+    --ion-color-secondary-contrast-rgb: 255,255,255;
+    --ion-color-secondary-shade: #8A4550;
+    --ion-color-secondary-tint: #8A4550;
+
+    --ion-color-tertiary: #8A4550;
+    --ion-color-tertiary-rgb: 106,100,255;
+    --ion-color-tertiary-contrast: #FDF8F5;
+    --ion-color-tertiary-contrast-rgb: 255,255,255;
+    --ion-color-tertiary-shade: #8A4550;
+    --ion-color-tertiary-tint: #8A4550;
+}
+}
+
+html {
+/* 
+    * For more information on dynamic font scaling, visit the documentation:
+    * https://ionicframework.com/docs/layout/dynamic-font-scaling
+    */
+--ion-dynamic-font: var(--ion-default-dynamic-font);
+}

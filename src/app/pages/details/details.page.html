@@ -1,0 +1,64 @@
+<ion-content [fullscreen]="true">
+  <div class="head-content">
+    <ion-icon name="arrow-back-circle-outline"
+      style="position: absolute; top: 10px; left: 10px; z-index: 500; height: 2rem; width: 2rem; color: var(--purpura);"
+      (click)="redirect_to_home()"></ion-icon>
+    <ion-icon name="heart-outline"
+      style="position: absolute; top: 10px; right: 10px; z-index: 500; height: 2rem; width: 2rem; color: var(--purpura);"></ion-icon>
+  </div>
+  <swiper-container #swiper :pagination="{
+    hideOnClick: true
+  }">
+    <swiper-slide style="height: 45vh;">
+      <ion-card style="box-shadow: none; margin: 0 0 1.75rem 0;">
+        <div alt="Silhouette of mountains" (click)="redirect_to_details()"
+          style="position: relative; height: 46vh; background-image: url('../../../assets/roupa1.jpg'); background-size: cover; background-repeat: no-repeat;">
+        </div>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide style="height: 45vh;">
+      <ion-card style="box-shadow: none; margin: 0 0 1.75rem 0;">
+        <div alt="Silhouette of mountains" (click)="redirect_to_details()"
+          style="position: relative; height: 46vh; background-image: url('../../../assets/roupa1.jpg'); background-size: cover; background-repeat: no-repeat;">
+        </div>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide style="height: 45vh;">
+      <ion-card style="box-shadow: none; margin: 0 0 1.75rem 0;">
+        <div alt="Silhouette of mountains" (click)="redirect_to_details()"
+          style="position: relative; height: 46vh; background-image: url('../../../assets/roupa1.jpg'); background-size: cover; background-repeat: no-repeat;">
+        </div>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+  <ion-card-header style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+    <div class="buttons" style="display: flex; justify-content: space-between;">
+      <div class="button" style="display: flex; align-items: center;">
+        <ion-icon name="heart-outline" style="height: 2rem; width: 2rem; color: var(--purpura);"></ion-icon>
+        <p style="margin-left: 5px;">Favoritar</p>
+      </div>
+      <div class="button" style="display: flex; align-items: center;">
+        <ion-icon name="cart-outline" style="height: 2rem; width: 2rem; color: var(--purpura);"></ion-icon>
+        <p style="margin-left: 5px;">Adicionar</p>
+      </div>
+    </div>
+  </ion-card-header>
+  <ion-card-content style="margin-top: 2rem;">
+    <ion-card-title style="font-weight: bold;">Vestido basiquinho e tudo de bom</ion-card-title>
+    <ion-card-subtitle>Descrição
+      Descrição Descrição Descrição
+    </ion-card-subtitle>
+    <div class="buttons" style="display: flex; gap: 5px;margin-top: 2rem;">
+      <button style="padding: 1rem 1.1rem; border-radius: 50%; background: var(--purpura);">P</button>
+      <button style="padding: 1rem; border-radius: 50%; border: 1px solid var(--purpura); color: var(--purpura); background: var(--white);">M</button>
+    </div>
+    <div class="informations">
+      <br>
+      <p style="font-weight: bold; font-size: 1.02rem;">Valor:</p>
+      <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$40,00</p>
+      <br>
+      <p style="font-weight: bold; font-size: 1.02rem;">Frete:</p>
+      <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$40,00</p>
+    </div>
+  </ion-card-content>
+</ion-content>

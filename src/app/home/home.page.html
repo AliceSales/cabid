@@ -1,0 +1,169 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" style="display: flex; align-items: center; justify-content: center; width: 100%;">
+      <ion-img
+        src="../../assets/logomarca.png"
+        style="width: 7rem; margin: 0 1rem;"
+        alt="The Wisconsin State Capitol building in Madison, WI at night"
+      ></ion-img>
+      <ion-icon name="heart-outline" style="color: var(--purpura); position: absolute; z-index: 500; right: 17px; color: var(--purpura); font-size: 1.8rem;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar (click)="toggleCameraIcon()" (ionClear)="clearSearch()" style="padding: 0 0.7rem;" type="text" class="ion-searchbar" color="light" placeholder="placeholder" clearInput>
+      <ion-icon id="camera-search" name="camera-outline" style="position: absolute; z-index: 500; right: 24px; font-size: 1.4rem;" *ngIf="showCameraIcon"></ion-icon>
+    </ion-searchbar>    
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="all" (ionChange)="segmentChanged($event)" style="overflow: auto; margin: 0 0.5rem;">
+      <ion-segment-button style="width: fit-content;" value="all">
+        <ion-label>Home</ion-label>
+      </ion-segment-button>
+      <ion-segment-button style="width: fit-content;" value="adulto">
+        <ion-label>Adulto</ion-label>
+      </ion-segment-button>
+      <ion-segment-button style="width: fit-content;" value="feminino">
+        <ion-label>Feminino</ion-label>
+      </ion-segment-button>
+      <ion-segment-button style="width: fit-content;" value="masculino">
+        <ion-label>Masculino</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <swiper-container #swiper :pagination="{
+    hideOnClick: true
+  }"
+  >
+    <swiper-slide>
+      <ion-card style="border-radius: 1rem; box-shadow: none; margin: 0 0 1.75rem 0;">
+        <img
+        alt="Silhouette of mountains"
+        (click)="redirect_to_details()"
+        style="position: relative; border-radius: 1rem;"
+        src="../../assets/banner.png" />
+        <ion-card-header style="position: absolute; bottom: 0;">
+          
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card style="border-radius: 1rem; box-shadow: none; margin: 0 0 1.75rem 0;">
+        <img
+        alt="Silhouette of mountains"
+        (click)="redirect_to_details()"
+        style="position: relative; border-radius: 1rem;"
+        src="../../assets/banner.png" />
+        <ion-card-header style="position: absolute; bottom: 0;">
+          
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card style="border-radius: 1rem; box-shadow: none; margin: 0 0 1.75rem 0;">
+        <img
+        alt="Silhouette of mountains"
+        (click)="redirect_to_details()"
+        style="position: relative; border-radius: 1rem;"
+        src="../../assets/banner.png" />
+        <ion-card-header style="position: absolute; bottom: 0;">
+          
+        </ion-card-header>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+  <ion-content>
+    <ion-list *ngIf="selectedSegment === 'all'" style="display: flex; flex-wrap: wrap; justify-content: center;">
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+      <ion-card style="width: 42%; height: 12rem;">
+        <div style="height: 65%; background-image: url('../../assets/roupa1.jpg'); background-size: cover;" (click)="redirect_to_details()"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">Cropped preto</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ 120,00</p>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+    <ion-list *ngIf="selectedSegment === 'adulto'">
+      pppppppppppppppppppppppppppp
+    </ion-list>
+    <ion-list *ngIf="selectedSegment === 'feminino'">
+      pppppppppppppppppppppppppppp
+    </ion-list>
+    <ion-list *ngIf="selectedSegment === 'masculino'">
+      pppppppppppppppppppppppppppp
+    </ion-list>
+  </ion-content>
+</ion-content>
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="cart-outline">
+        <ion-icon name="cart-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="home-outline">
+        <ion-icon name="home-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="person-circle-outline">
+        <ion-icon name="person-circle-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
