@@ -17,8 +17,13 @@ $cinza: #696969;
 $purpura: #8A4550;
 $purpura_claro: #B84F60;
 $bege: #FDF8F5;
+$laranja: #D2691E;
 
 a, p, h1, h2, h3, h4, h5, h6, span {
     font-family: "Inter", sans-serif;
     color: $preto;
+}
+
+body {
+    background-color: $bege;
 }

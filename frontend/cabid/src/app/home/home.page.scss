@@ -1,0 +1,20 @@
+.menu-btn {
+    color: var(--purpura);
+}
+
+.ion-searchbar {
+    color: var(--purpura);
+    border-radius: 1rem;
+}
+
+.ion-searchbar > div {
+    border: 1px solid!important;
+}
+
+div > div.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal > span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: var(--purpura)!important;
+}
+
+.segment-button-checked {
+    color: var(--purpura)!important;
+}
