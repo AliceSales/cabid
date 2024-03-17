@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "cabid",
+  "short_name": "cabid",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
