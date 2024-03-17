@@ -1,0 +1,33 @@
+<ion-content class="ion-padding">
+  <ion-card-subtitle>
+    <div class="perfil-image" style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg" alt="Logotipo do brechó" style="border-radius: 50%; height: 20vh; width: 50vw; margin: 1rem 0 0.5rem 0;">
+      <h3 style="font-size: 1.02rem; font-weight: bold; margin: 0;">Brechó do Marcelo</h3><p style="font-weight: bold; color: inherit; margin: 0;">Rua torres homem</p>
+    </div>
+  </ion-card-subtitle>
+  <ion-card-subtitle>
+    <p style="margin: 2rem 0 0; color: inherit; text-align: justify;">
+      Nosso brechó é um espaço que respira história e personalidade. Cada peça cuidadosamente selecionada conta uma história única, transportando nossos clientes para diferentes épocas e estilos. Desde os clássicos atemporais até os tesouros vintage, nosso brechó oferece uma experiência de moda autêntica e sustentável, onde o passado encontra o presente em uma fusão de estilo e nostalgia.
+    </p>
+  </ion-card-subtitle>
+  <ion-card-subtitle>
+    <div class="button-cadastrar" style="display: flex; justify-content: center; margin-top: 2rem; justify-content: center;">
+      <button (click)="navigateToCreateProduct()" style="background: var(--purpura); border-radius: 11px; padding: 15px 30px; color: #ffffff; text-align: center;">Cadastrar produto</button>
+    </div>
+  </ion-card-subtitle>
+</ion-content>
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="navigateToHome()" tab="shirt-outline">
+        <ion-icon name="shirt-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="navigateToStatsChart()" tab="stats-chart-outline">
+        <ion-icon name="stats-chart-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="person-circle-outline" (click)="navigateToPerfil()">
+        <ion-icon name="person-circle-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

@@ -1,0 +1,6 @@
+{
+  "products": [
+    { "id": 1, "nome": "Camiseta de time", "preco_venda": 20, "imagens": ["https://a-static.mlcdn.com.br/450x450/camisa-bahia-esquadrao-listrada-masculina/netshoes/lpo-0334-058-02/7eeea86e0a068ec865f6fef8d7c75af0.jpeg"],  "cor": "vermelho", "preco_compra": 25.5, "descricao_peca": "LOREM IPSUM", "tamanho": "M" },
+    { "id": 2, "nome": "Calça verde", "preco_venda": 30, "imagens": ["https://ssangbangwool.com.br/media/catalog/product/cache/1/image/1733x2600/9df78eab33525d08d6e5fb8d27136e95/c/a/cadastros_site_1605_4_.jpg", "https://images.pexels.com/photos/8483669/pexels-photo-8483669.jpeg", "https://images.pexels.com/photos/8889705/pexels-photo-8889705.jpeg"],  "cor": "azul", "preco_compra": 25.5, "descricao_peca": "LOREM IPSUM", "tamanho": "M" }
+  ]
+}

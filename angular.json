@@ -150,5 +150,8 @@
     "@ionic/angular-toolkit:page": {
       "styleext": "scss"
     }
-  }
+  },
+  "scripts": [
+    "node_modules/chart.js/dist/chart.min.js"
+  ]  
 }

@@ -7,6 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HttpClientModule } from '@angular/common/http';
+import { ImageUploadModalModule } from '../app/components/image-upload-modal.component/image.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +17,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   // Register the ServiceWorker as soon as the application is stable
   // or after 30 seconds (whichever comes first).
   registrationStrategy: 'registerWhenStable:30000'
-})],
+  }),
+  HttpClientModule,
+  ImageUploadModalModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

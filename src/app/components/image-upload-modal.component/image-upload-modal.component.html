@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-title>Busca por imagem</ion-title>
+    <ion-buttons slot="end">
+      <button color="dark" (click)="dismiss()" style="display: flex;align-items: center;justify-content: center;height: 2rem;width: 2rem;border-radius: 50%;border: 1px solid #ccc;background: transparent;color: #ccc;margin: 0 .5rem;">X</button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="content" style="display: flex; align-items: center; flex-direction: column;">
+    <div style="margin: 2rem 0 .5rem 0;height: 20vh;display: flex;align-items: center;justify-content: center;background: #cccccc6e;">
+      <img *ngIf="imagePreviewUrl" [src]="imagePreviewUrl" style="width: 100%; height: auto;">
+      <input type="file" accept="image/*" name="image-outline" (change)="onFileSelected($event)" style="color: transparent; width: 44%;">
+    </div>
+    <button type="submit" style="margin-top: 1rem; background-color: var(--purpura); border-radius: 11px; padding: 15px 30px; color: #ffffff; text-align: center;" (click)="onUpload()">Enviar Imagem</button>
+  </div>
+</ion-content>

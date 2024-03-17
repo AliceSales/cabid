@@ -1,0 +1,18 @@
+<ion-toolbar>
+  <ion-buttons slot="start" style="display: flex; align-items: center; justify-content: center; width: 100%;">
+    <ion-img
+      src="../../assets/logomarca.png"
+      style="width: 7rem; margin: 0 1rem;"
+      alt="The Wisconsin State Capitol building in Madison, WI at night"
+    ></ion-img>
+  </ion-buttons>
+</ion-toolbar>
+<ion-toolbar>
+  <div class="search-bar" style="display: flex; align-items: center;">
+    <ion-searchbar (ionClear)="clearSearch()" style="padding: 0 0.7rem; width: 85%;border-radius: 8px;" type="text" class="ion-searchbar" color="light" placeholder="placeholder" clearInput>
+    </ion-searchbar>
+    <div class="icon-search" style="display: flex;align-items: center;justify-content: center;background-color: var(--purpura);height: 2.5rem;width: 2.5rem;border-radius: 8px;">
+      <ion-icon id="camera-search" (click)="showModal()"  name="camera-outline" style="z-index: 500; right: 24px; font-size: 1.4rem; color: #f0f0f0;"></ion-icon>
+    </div>
+  </div>
+</ion-toolbar>

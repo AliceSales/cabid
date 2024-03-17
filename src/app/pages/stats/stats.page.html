@@ -1,0 +1,43 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-card-subtitle>
+    <div class="card" style="background: var(--purpura); border-radius: 8px; display: flex; align-items: center; justify-content: space-around; height: 4rem; color: aliceblue;">
+      <h3 style="font-size: 1.02rem; color: inherit; font-weight: bold; margin: 0;">Receita</h3><p style="font-weight: bold; color: inherit; margin: 0;">R$ 1.200,00</p>
+    </div>
+  </ion-card-subtitle>
+  <br>
+  <ion-card-subtitle>
+    <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Volume de vendas</b></h3>
+    <canvas #myChart width="" height=""></canvas>
+  </ion-card-subtitle>
+  <br>
+  <ion-card-subtitle>
+    <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Últimas vendas</b></h3>
+    <ion-list style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <ion-card *ngFor="let product of products" style="width: 48%; height: 9rem; margin: 0;">
+        <div style="height: 65%; background-size: cover;" [style.backgroundImage]="'url(' + product.imagens[0] + ')'"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">{{ product.nome }}</span>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda.toFixed(2) }}</p>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
+  </ion-card-subtitle>
+</ion-content>
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button (click)="navigateToHome()" tab="shirt-outline">
+        <ion-icon name="shirt-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="navigateToStatsChart()" tab="stats-chart-outline">
+        <ion-icon name="stats-chart-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="person-circle-outline" (click)="navigateToPerfil()">
+        <ion-icon name="person-circle-outline" style="color: var(--purpura);"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
