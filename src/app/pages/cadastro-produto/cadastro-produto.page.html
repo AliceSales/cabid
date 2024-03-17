@@ -8,7 +8,7 @@
   <ion-card-subtitle>
     <div style="margin: 2rem 0 .5rem 0;height: 20vh;display: flex;align-items: center;justify-content: center;background: #cccccc6e; flex-direction: column;">
       <img *ngIf="imagePreviewUrl" [src]="imagePreviewUrl" style="width: 100%; height: 100%;">
-      <input type="file" accept="image/*" name="image-outline" (change)="onFileSelected($event)" style="color: transparent; width: 44%;">
+      <input type="file" accept="image/*" name="image-outline" (change)="onFileSelected($event)" style="color: transparent; width: 44%;" [hidden]="imagePreviewUrl">
     </div>
     <form (ngSubmit)="onSubmit()">
       <div style="display: flex; flex-direction: column; margin-top: 1rem;">
