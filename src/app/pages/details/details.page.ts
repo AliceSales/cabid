@@ -14,6 +14,7 @@ interface Product {
   descricao_peca: string;
   tamanho: string;
 }
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
@@ -23,18 +24,23 @@ export class DetailsPage implements OnInit {
   selectedSegment: string = 'all';
   productId: number;
   product: Product;
+  dataLoaded: boolean = false; // Variável para controlar se os dados foram carregados
+
   constructor(private router: Router, private route: ActivatedRoute, private productService: ProductsService, private navCtrl: NavController) { }
 
   segmentChanged(event: any) {
     this.selectedSegment = event.detail.value;
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  
+  ionViewDidEnter() {
     const id = this.route.snapshot.paramMap.get('id');
     this.productId = id ? parseInt(id, 10) : 0;
     this.productService.getProduct(this.productId).subscribe(
       (product: Product) => {
         this.product = product;
+        this.dataLoaded = true; // Define como true quando os dados são carregados com sucesso
       },
       (error) => {
         console.error('Erro ao obter o produto:', error);

@@ -1,0 +1,17 @@
+{
+    "name": "cabid",
+    "short_name": "cabid",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#FDF8F5",
+    "orientation": "vertical",
+    "icons": [
+      {
+        "src": "../src/assets/icon/favicon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  
