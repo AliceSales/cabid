@@ -14,13 +14,16 @@ interface Product {
   descricao_peca: string;
   tamanho: string;
   id_semelhantes: number[];
+  tags: string[];
 }
 
 interface Labels {
   id: string;
   image: string;
+  nome: string;
   labels: string[];
   nome_arquivo: string;
+  descricao: string
 }
 @Injectable({
   providedIn: 'root'
@@ -47,35 +50,66 @@ export class ProductsService {
       );
   }
 
+  getProductName(name: string): Observable<Product | undefined> {
+    return this.firestore.collection<Product>(this.collectionName, ref => ref.where('nome', '==', name))
+      .valueChanges({ nameField: 'nome' })
+      .pipe(
+        map(products => products[0]),
+        catchError(error => {
+          console.error('Error fetching product:', error);
+          return of(undefined);
+        })
+      );
+  }
+
   getProductByName(name: string): Observable<number[]> {
     return this.firestore.collection<Product>(
-      this.collectionName, 
-      ref => ref.where('arquivo_nome', '==', name)
+      this.collectionName
     )
     .valueChanges({ id: 'id' })
     .pipe(
       map(products => {
-        if (products.length === 0) {
+        const matchingProducts = products.filter(product => {
+          if (!product.arquivo_nome) return false;
+          const filenamesWithoutExtensions: string[] = [];
+          for (const filename of product.arquivo_nome) {
+            const filenameWithoutExtension = filename.split('.')[0];
+            filenamesWithoutExtensions.push(filenameWithoutExtension);
+          }
+          return filenamesWithoutExtensions.includes(name.split('.')[0]);
+        });
+  
+        if (matchingProducts.length === 0) {
           console.log('Nenhum produto encontrado com o nome:', name);
           return [];
         }
-        return products.map(product => product.id);
+  
+        return matchingProducts.map(product => product.id);
       })
     );
   }
 
-  getLabelByName(name: string): Observable<string[]> {
-    return this.firestore.collection<any>(
-      'labels',
-      ref => ref.where('nome_arquivo', '==', name)
-    ).valueChanges({ idField: 'id' }).pipe(
+  getLabelByName(name: string): Observable<{ label: string, descricao: string, nome: string }[]> {
+    return this.firestore.collection<Labels>('labels').valueChanges({ idField: 'id' }).pipe(
       map(labels => {
-        if (labels.length === 0) {
+        const matchingLabels = labels.filter(label => {
+          return label.nome_arquivo && label.nome_arquivo.split('.')[0] === name.split('.')[0];
+        });
+  
+        if (matchingLabels.length === 0) {
           console.log('Nenhum rótulo encontrado com o nome do arquivo:', name);
           return [];
         }
-        return labels.map(label => label.labels);
+  
+        const result: { label: string, descricao: string, nome: string }[] = [];
+        for (const label of matchingLabels) {
+          for (let i = 0; i < label.labels.length; i++) {
+            result.push({ label: label.labels[i], descricao: label.descricao, nome: label.nome });
+          }
+        }
+        return result;
       })
     );
   }
+  
 }

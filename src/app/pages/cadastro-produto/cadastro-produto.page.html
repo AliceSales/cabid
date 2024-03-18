@@ -28,6 +28,10 @@
         <textarea [(ngModel)]="item.descricao_peca" name="descricao_peca" style="background: transparent; padding: .5rem; height: 5rem; width: 100%; border: 1px solid var(--purpura); border-radius: 8px;"></textarea>
       </div>
       <div style="margin-top: 1rem;">
+        <label style="font-weight: bold;">Tags</label>
+        <input [(ngModel)]="item.tags" name="tags_peca" style="background: transparent; padding: .5rem; height: 5rem; width: 100%; border: 1px solid var(--purpura); border-radius: 8px;">
+      </div>
+      <div style="margin-top: 1rem;">
         <label style="font-weight: bold;">Tamanho</label>
         <select [(ngModel)]="item.tamanho" name="tamanho" style="background: transparent; padding: .5rem; height: 2.8rem; width: 100%; border: 1px solid var(--purpura); border-radius: 8px;">
           <option value="P">P</option>
@@ -39,13 +43,7 @@
         <label style="font-weight: bold;">Cor</label>
         <input type="color" [(ngModel)]="item.cor" name="cor" style="background: transparent; padding: .5rem; height: 2.8rem; width: 100%; border: 1px solid var(--purpura); border-radius: 8px;">
       </div>      
-      <button type="submit" style="margin-top: 1rem; background-color: var(--purpura); border-radius: 11px; padding: 15px 30px; color: #ffffff; text-align: center;">Salvar</button>
+      <button type="submit" style="margin-top: 1rem; background-color: var(--purpura); border-radius: 11px; padding: 15px 30px; color: #ffffff; text-align: center;">Pegar descrição peça</button>
     </form>
-
-    <div class="content" style="margin-top: 2rem;">
-      <ul *ngFor="let label of labels">
-        <li>{{ label }}</li>
-      </ul>
-    </div>    
   </ion-card-subtitle>
 </ion-content>

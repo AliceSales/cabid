@@ -15,6 +15,7 @@ interface Product {
   descricao_peca: string;
   tamanho: string;
   id_semelhantes: number[];
+  tags: string[];
 }
 
 @Component({
@@ -25,6 +26,7 @@ interface Product {
 export class DetailsPage implements OnInit {
   selectedSegment: string = 'all';
   productId: number;
+  productName: string;
   product: Product | undefined;
   dataLoaded: boolean = false;
 
@@ -39,15 +41,29 @@ export class DetailsPage implements OnInit {
   ionViewDidEnter() {
     const id = this.route.snapshot.paramMap.get('id');
     this.productId = id ? parseInt(id, 10) : 0;
-    this.productService.getProduct(this.productId).subscribe(
-      (product: Product | undefined) => {
-        this.product = product;
-        this.dataLoaded = true;
-      },
-      (error) => {
-        console.error('Erro ao obter o produto:', error);
-      }
-    );
+    if (!Number.isNaN(this.productId)) {
+      this.productService.getProduct(this.productId).subscribe(
+        (product: Product | undefined) => {
+          this.product = product;
+          this.dataLoaded = true;
+        },
+        (error) => {
+          console.error('Erro ao obter o produto:', error);
+        }
+      );
+    } else {
+      const name = this.route.snapshot.paramMap.get('id');
+      this.productName = name ? name : '';
+      this.productService.getProductName(this.productName).subscribe(
+        (product: Product | undefined) => {
+          this.product = product;
+          this.dataLoaded = true;
+        },
+        (error) => {
+          console.error('Erro ao obter o produto:', error);
+        }
+      );
+    }
   }  
   
   navigateToStatsChart() {

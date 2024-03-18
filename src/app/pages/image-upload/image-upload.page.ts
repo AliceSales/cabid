@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/products.service';
 import { map } from 'rxjs/operators'; // Importe o operador map corretamente
 
@@ -15,6 +15,7 @@ interface Product {
   descricao_peca: string;
   tamanho: string;
   id_semelhantes: number[];
+  tags: string[];
 }
 
 @Component({
@@ -30,6 +31,7 @@ export class ImageUploadPage implements OnInit {
   products: Product[] = []; // Inicialize products como um array vazio
 
   constructor(
+    private router: Router,
     private modalController: ModalController,
     private route: ActivatedRoute,
     private productService: ProductsService,
@@ -72,5 +74,10 @@ export class ImageUploadPage implements OnInit {
         console.error('Erro ao obter os IDs dos produtos:', error);
       }
     );
+  }
+
+  redirect_to_details_nome(nome: string) {
+    this.dismiss();
+    this.router.navigate(['/details', nome]);
   }
 }

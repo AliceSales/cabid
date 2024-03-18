@@ -27,7 +27,8 @@ export class CadastroProdutoPage implements OnInit {
     cor: '',
     preco_compra: null,
     descricao_peca: '',
-    tamanho: ''
+    tamanho: '',
+    tags: []
   };
 
   constructor(
@@ -48,7 +49,8 @@ export class CadastroProdutoPage implements OnInit {
       cor: '',
       preco_compra: null,
       descricao_peca: '',
-      tamanho: ''
+      tamanho: '',
+      tags: []
     };
     this.selectedImage = null;
     this.navCtrl.navigateForward('/perfil');
@@ -62,11 +64,15 @@ export class CadastroProdutoPage implements OnInit {
   onSubmit() {
     if (this.selectedImage) {
       this.productService.getLabelByName(this.selectedImage.name).subscribe(
-        (labels: string[]) => {
-          this.labels = labels;
-        }
+        (labels: { label: string, descricao: string, nome: string }[]) => {
+          this.labels = labels.map(label => label.label);
+          this.item.tags = this.labels;
+          this.item.descricao_peca = labels[0].descricao;
+          this.item.nome = labels[0].nome;
+        },
+        () => {}
       );
-
+  
       this.item = {
         id: null,
         nome: '',
@@ -82,4 +88,5 @@ export class CadastroProdutoPage implements OnInit {
       console.error('Nenhuma imagem selecionada.');
     }
   }
+  
 }

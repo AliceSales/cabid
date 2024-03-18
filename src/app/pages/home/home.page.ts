@@ -14,6 +14,7 @@ interface Product {
   descricao_peca: string;
   tamanho: string;
   id_semelhantes: number[];
+  tags: string[];
 }
 
 @Component({
