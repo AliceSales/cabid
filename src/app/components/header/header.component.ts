@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonSearchbar, ModalController } from '@ionic/angular';
-import { ImageUploadModalComponent } from '../image-upload-modal.component/image-upload-modal.component';
+import { ImageUploadPage } from 'src/app/pages/image-upload/image-upload.page';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +23,7 @@ export class HeaderComponent {
 
   async presentModal() {
     const modal = await this.modalController.create({
-      component: ImageUploadModalComponent,
+      component: ImageUploadPage,
       cssClass: 'image-upload-modal'
     });
     return await modal.present();

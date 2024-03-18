@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'cadastro-produto',
     loadChildren: () => import('./pages/cadastro-produto/cadastro-produto.module').then( m => m.CadastroProdutoPageModule)
   },
+  {
+    path: 'image-upload',
+    loadChildren: () => import('./pages/image-upload/image-upload.module').then( m => m.ImageUploadPageModule)
+  },
 ];
 
 @NgModule({

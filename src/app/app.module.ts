@@ -7,15 +7,18 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ImageUploadModalModule } from '../app/components/image-upload-modal.component/image.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   HttpClientModule,
-  ImageUploadModalModule,
-  ServiceWorkerModule.register('../ngsw-config.json')],
+  ServiceWorkerModule.register('../ngsw-config.json'),
+  AngularFireModule.initializeApp(environment.firebaseConfig),
+  AngularFirestoreModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

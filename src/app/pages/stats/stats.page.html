@@ -15,7 +15,7 @@
   <br>
   <ion-card-subtitle>
     <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Últimas vendas</b></h3>
-    <ion-list style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <ion-list style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
       <ion-card *ngFor="let product of products" style="width: 48%; height: 9rem; margin: 0;">
         <div style="height: 65%; background-size: cover;" [style.backgroundImage]="'url(' + product.imagens[0] + ')'"></div>
         <ion-card-header style="padding: 0 .5rem;">

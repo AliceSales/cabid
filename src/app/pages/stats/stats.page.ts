@@ -4,6 +4,7 @@ import Chart from 'chart.js/auto';
 import { ProductsService } from 'src/app/products.service';
 
 interface Product {
+  arquivo_nome: string;
   id: number;
   nome: string;
   imagens: string[];
@@ -12,6 +13,7 @@ interface Product {
   preco_compra: number;
   descricao_peca: string;
   tamanho: string;
+  id_semelhantes: number[];
 }
 
 @Component({

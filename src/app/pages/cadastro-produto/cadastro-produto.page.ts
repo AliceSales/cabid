@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { ProductsService } from 'src/app/products.service';
+
+interface Labels {
+  id: string;
+  image: string;
+  labels: string[];
+  nome_arquivo: string;
+}
 
 @Component({
   selector: 'app-cadastro-produto',
@@ -9,6 +18,7 @@ import { NavController } from '@ionic/angular';
 export class CadastroProdutoPage implements OnInit {
   selectedImage: File | null = null;
   imagePreviewUrl: string | null = null;
+  labels: string[] = [];
   item: any = {
     id: null,
     nome: '',
@@ -20,7 +30,11 @@ export class CadastroProdutoPage implements OnInit {
     tamanho: ''
   };
 
-  constructor(private navCtrl: NavController) { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductsService,
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
@@ -46,19 +60,26 @@ export class CadastroProdutoPage implements OnInit {
   }
 
   onSubmit() {
-    console.log('Dados do formulário:', this.item);
-    console.log('Imagem selecionada:', this.selectedImage);
+    if (this.selectedImage) {
+      this.productService.getLabelByName(this.selectedImage.name).subscribe(
+        (labels: string[]) => {
+          this.labels = labels;
+        }
+      );
 
-    this.item = {
-      id: null,
-      nome: '',
-      preco_venda: null,
-      imagens: [],
-      cor: '',
-      preco_compra: null,
-      descricao_peca: '',
-      tamanho: ''
-    };
-    this.selectedImage = null;
+      this.item = {
+        id: null,
+        nome: '',
+        preco_venda: null,
+        imagens: [],
+        cor: '',
+        preco_compra: null,
+        descricao_peca: '',
+        tamanho: ''
+      };
+      this.selectedImage = null;
+    } else {
+      console.error('Nenhuma imagem selecionada.');
+    }
   }
 }

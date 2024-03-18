@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { ProductsService } from 'src/app/products.service';
 
 interface Product {
+  arquivo_nome: string;
   id: number;
   nome: string;
   imagens: string[];
@@ -13,6 +14,7 @@ interface Product {
   preco_compra: number;
   descricao_peca: string;
   tamanho: string;
+  id_semelhantes: number[];
 }
 
 @Component({
@@ -23,8 +25,8 @@ interface Product {
 export class DetailsPage implements OnInit {
   selectedSegment: string = 'all';
   productId: number;
-  product: Product;
-  dataLoaded: boolean = false; // Variável para controlar se os dados foram carregados
+  product: Product | undefined;
+  dataLoaded: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private productService: ProductsService, private navCtrl: NavController) { }
 
@@ -38,9 +40,9 @@ export class DetailsPage implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.productId = id ? parseInt(id, 10) : 0;
     this.productService.getProduct(this.productId).subscribe(
-      (product: Product) => {
+      (product: Product | undefined) => {
         this.product = product;
-        this.dataLoaded = true; // Define como true quando os dados são carregados com sucesso
+        this.dataLoaded = true;
       },
       (error) => {
         console.error('Erro ao obter o produto:', error);

@@ -6,10 +6,22 @@
     </ion-buttons>
   </ion-toolbar>
   <div class="content" style="display: flex; align-items: center; flex-direction: column;">
-    <div style="margin: 2rem 0 .5rem 0;height: 20vh;display: flex;align-items: center;justify-content: center;background: #cccccc6e; flex-direction: column;">
+    <div style="margin: 2rem 0 .5rem 0;height: 70vh;display: flex;align-items: center;justify-content: center;background: #cccccc6e; flex-direction: column;">
       <img *ngIf="imagePreviewUrl" [src]="imagePreviewUrl" style="width: 100%; height: 100%;">
       <input type="file" accept="image/*" name="image-outline" (change)="onFileSelected($event)" style="color: transparent; width: 44%;" [hidden]="imagePreviewUrl">
     </div>
     <button type="submit" style="margin-top: 1rem; background-color: var(--purpura); border-radius: 11px; padding: 15px 30px; color: #ffffff; text-align: center;" (click)="onUpload()">Enviar Imagem</button>
+  </div>
+  <div class="content" style="margin: 2rem 0.8rem;">
+    <ion-list style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      <ion-card *ngFor="let product of products" style="width: 48%; height: 12rem; margin: 0;">
+        <div style="height: 65%; background-size: cover;" [style.backgroundImage]="product?.imagens && product.imagens.length > 0 ? 'url(' + product.imagens[0] + ')' : ''"></div>
+        <ion-card-header style="padding: 0 .5rem;">
+          <span style="font-weight: bold; margin-top: 0.5rem;">{{ product?.nome }}</span>
+          <p style="margin: 0; color: var(--purpura);">Peça única</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product?.preco_venda }}</p>
+        </ion-card-header>
+      </ion-card>
+    </ion-list>
   </div>
 </ion-content>

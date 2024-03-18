@@ -7,7 +7,7 @@
   <swiper-container #swiper :pagination="{
     hideOnClick: true
   }">
-    <swiper-slide style="height: 45vh;" *ngFor="let image of product.imagens">
+    <swiper-slide style="height: 45vh;" *ngFor="let image of product?.imagens">
       <ion-card style="box-shadow: none; margin: 0 0 1.75rem 0;">
         <div alt="Silhouette of mountains"
           style="position: relative; height: 46vh; background-image: url({{image}}); background-size: cover; background-repeat: no-repeat; background-position: center;">
@@ -16,39 +16,28 @@
     </swiper-slide>
   </swiper-container>
   <ion-card-content style="margin-top: 2rem;">
-    <ion-card-title style="font-weight: bold;">{{product.nome}}</ion-card-title>
-    <ion-card-subtitle>{{product.descricao_peca}}</ion-card-subtitle>
+    <ion-card-title style="font-weight: bold;">{{product?.nome}}</ion-card-title>
+    <ion-card-subtitle>{{product?.descricao_peca}}</ion-card-subtitle>
     <ion-card-subtitle>
-      <h3 style="margin: 2rem 0 .5rem 0; font-size: 1.02rem;"><b>Quantidade em estoque</b></h3>
-      <p>4 peças</p>
-    </ion-card-subtitle>
-    <ion-card-subtitle>
-      <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Cores disponíveis</b></h3>
+      <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Cor peça</b></h3>
       <div style="display: flex; align-items: center;">
-        <div style="height: 2rem; width: 2rem; background-color: crimson;"></div>
-        <div style="height: 2rem; width: 2rem; background-color: rgb(20, 23, 220); margin: 0 0 0 .5rem;"></div>
+        <div [style.height]="'2rem'" [style.width]="'2rem'" [style.background-color]="product?.cor"></div>
       </div>
     </ion-card-subtitle>
     <ion-card-subtitle>
-      <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Tamanhos disponíveis</b></h3>
+      <h3 style="margin: 1rem 0 .5rem 0; font-size: 1.02rem;"><b>Tamanho peça</b></h3>
       <div class="buttons" style="display: flex; gap: 5px;">
-        <button style="height: 2rem; width: 2rem; display: flex; align-items: center; justify-content: center; padding: 1rem; border-radius: 50%; border: 1px solid var(--purpura); color: var(--purpura); background: var(--white);">P</button>
-        <button style="height: 2rem; width: 2rem; display: flex; align-items: center; justify-content: center; padding: 1rem; border-radius: 50%; border: 1px solid var(--purpura); color: var(--purpura); background: var(--white);">M</button>
+        <button style="height: 2rem; width: 2rem; display: flex; align-items: center; justify-content: center; padding: 1rem; border-radius: 50%; border: 1px solid var(--purpura); color: var(--purpura); background: var(--white);">{{product?.tamanho}}</button>
       </div>
     </ion-card-subtitle>
     <div class="informations">
       <br>
       <p style="font-weight: bold; font-size: 1.02rem;">Valor pago:</p>
-      <p style="margin: 0; color: var(--laranja); font-weight: bold;">R${{product.preco_compra}}</p>
+      <p style="margin: 0; color: var(--laranja); font-weight: bold;">R${{product?.preco_compra}}</p>
       <br>
       <p style="font-weight: bold; font-size: 1.02rem;">Valor revenda:</p>
-      <p style="margin: 0; color: var(--laranja); font-weight: bold;">R${{product.preco_venda}}</p>
+      <p style="margin: 0; color: var(--laranja); font-weight: bold;">R${{product?.preco_venda}}</p>
     </div>
-    <ion-card-subtitle>
-      <div class="button-cadastrar" style="display: flex; justify-content: center; margin-top: 2rem; justify-content: center;">
-        <button style="background: var(--purpura); border-radius: 11px; padding: 15px 30px; color: #ffffff; text-align: center;">Retirar produto do estoque</button>
-      </div>
-    </ion-card-subtitle>
   </ion-card-content>
 </ion-content>
 <ion-toolbar>

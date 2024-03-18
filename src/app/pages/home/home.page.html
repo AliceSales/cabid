@@ -19,33 +19,33 @@
 </ion-header>
 <ion-content class="ion-padding">
   <div class="content">
-    <ion-list *ngIf="selectedSegment === 'all'" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <ion-card *ngFor="let product of products" style="width: 48%; height: 12rem; margin: 0;">
-        <div style="height: 65%; background-size: cover;" [style.backgroundImage]="'url(' + product.imagens[0] + ')'" (click)="redirect_to_details(product.id)"></div>
+    <ion-list *ngIf="selectedSegment === 'all'" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      <ion-card *ngFor="let product of products" style="width: 48%; height: 18rem; margin: 0;">
+        <div style="height: 65%; background-size: cover; margin-top: .5rem;" [style.backgroundImage]="'url(' + product.imagens[0] + ')'" (click)="redirect_to_details(product.id)"></div>
         <ion-card-header style="padding: 0 .5rem;">
-          <span style="font-weight: bold; margin-top: 0.5rem;">{{ product.nome }}</span>
+          <span style="font-weight: bold; margin-top: 0.9rem;">{{ product.nome }}</span>
           <p style="margin: 0; color: var(--purpura);">Peça única</p>
-          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda.toFixed(2) }}</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda }}</p>
         </ion-card-header>
       </ion-card>
     </ion-list>
-    <ion-list *ngIf="selectedSegment === 'feminino'" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <ion-card *ngFor="let product of products" style="width: 48%; height: 12rem; margin: 0;">
+    <ion-list *ngIf="selectedSegment === 'feminino'" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      <ion-card *ngFor="let product of products" style="width: 48%; height: 18rem; margin: 0;">
         <div style="height: 65%; background-size: cover;" [style.backgroundImage]="'url(' + product.imagens[0] + ')'" (click)="redirect_to_details(product.id)"></div>
         <ion-card-header style="padding: 0 .5rem;">
           <span style="font-weight: bold; margin-top: 0.5rem;">{{ product.nome }}</span>
           <p style="margin: 0; color: var(--purpura);">Peça única</p>
-          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda.toFixed(2) }}</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda }}</p>
         </ion-card-header>
       </ion-card>
     </ion-list>
-    <ion-list *ngIf="selectedSegment === 'masculino'" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <ion-card *ngFor="let product of products" style="width: 48%; height: 12rem; margin: 0;">
+    <ion-list *ngIf="selectedSegment === 'masculino'" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+      <ion-card *ngFor="let product of products" style="width: 48%; height: 18rem; margin: 0;">
         <div style="height: 65%; background-size: cover;" [style.backgroundImage]="'url(' + product.imagens[0] + ')'" (click)="redirect_to_details(product.id)"></div>
         <ion-card-header style="padding: 0 .5rem;">
           <span style="font-weight: bold; margin-top: 0.5rem;">{{ product.nome }}</span>
           <p style="margin: 0; color: var(--purpura);">Peça única</p>
-          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda.toFixed(2) }}</p>
+          <p style="margin: 0; color: var(--laranja); font-weight: bold;">R$ {{ product.preco_venda }}</p>
         </ion-card-header>
       </ion-card>
     </ion-list>
